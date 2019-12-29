@@ -1,0 +1,12 @@
+﻿
+
+syntax = "proto3";
+
+option csharp_namespace = "BusinessMicroservice";
+
+import "Entities.proto";
+
+
+service StudentsGrpService {
+	rpc GetStudents (GetStudentsRequest) returns (GetStudentsResponse);
+}
