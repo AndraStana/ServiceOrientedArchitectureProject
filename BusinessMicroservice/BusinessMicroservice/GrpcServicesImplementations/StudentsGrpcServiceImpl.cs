@@ -35,5 +35,37 @@ namespace BusinessMicroservice.GrpcServicesImplementations
 
             return Task.FromResult(response);
         }
+
+        public override Task<GetStudentDetailsResponse> GetStudentDetails(GetStudentDetailsRequest request, ServerCallContext context)
+        {
+            var student = StudentsService.GetStudentDetails(Guid.Parse(request.Id));
+
+
+            var allCourses = student.Grades.Select(g => g.Course).Distinct();
+
+            var grades = new List<GradeMessage>();
+
+            foreach (var course in allCourses)
+            {
+                var grade = new GradeMessage()
+                {
+                    CourseName = course.Name,
+                };
+                grade.Marks.AddRange(student.Grades.Where(g => g.CourseId == course.Id).Select(g=>g.Mark).ToList());
+                grades.Add(grade);
+            }
+
+
+            var response = new GetStudentDetailsResponse()
+            {
+                Id = student.Id.ToString(),
+                YearOfBirth = student.YearOfBirth,
+                Address = student.Address,
+                Name = student.Name
+            };
+            response.Grades.AddRange(grades);
+
+            return Task.FromResult(response);
+        }
     }
 }

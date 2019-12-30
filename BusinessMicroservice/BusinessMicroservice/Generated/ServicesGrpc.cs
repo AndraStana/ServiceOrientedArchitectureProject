@@ -14,6 +14,8 @@ namespace BusinessMicroservice {
 
     static readonly grpc::Marshaller<global::BusinessMicroservice.GetStudentsRequest> __Marshaller_GetStudentsRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::BusinessMicroservice.GetStudentsRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::BusinessMicroservice.GetStudentsResponse> __Marshaller_GetStudentsResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::BusinessMicroservice.GetStudentsResponse.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::BusinessMicroservice.GetStudentDetailsRequest> __Marshaller_GetStudentDetailsRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::BusinessMicroservice.GetStudentDetailsRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::BusinessMicroservice.GetStudentDetailsResponse> __Marshaller_GetStudentDetailsResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::BusinessMicroservice.GetStudentDetailsResponse.Parser.ParseFrom);
 
     static readonly grpc::Method<global::BusinessMicroservice.GetStudentsRequest, global::BusinessMicroservice.GetStudentsResponse> __Method_GetStudents = new grpc::Method<global::BusinessMicroservice.GetStudentsRequest, global::BusinessMicroservice.GetStudentsResponse>(
         grpc::MethodType.Unary,
@@ -21,6 +23,13 @@ namespace BusinessMicroservice {
         "GetStudents",
         __Marshaller_GetStudentsRequest,
         __Marshaller_GetStudentsResponse);
+
+    static readonly grpc::Method<global::BusinessMicroservice.GetStudentDetailsRequest, global::BusinessMicroservice.GetStudentDetailsResponse> __Method_GetStudentDetails = new grpc::Method<global::BusinessMicroservice.GetStudentDetailsRequest, global::BusinessMicroservice.GetStudentDetailsResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "GetStudentDetails",
+        __Marshaller_GetStudentDetailsRequest,
+        __Marshaller_GetStudentDetailsResponse);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -37,6 +46,11 @@ namespace BusinessMicroservice {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
+      public virtual global::System.Threading.Tasks.Task<global::BusinessMicroservice.GetStudentDetailsResponse> GetStudentDetails(global::BusinessMicroservice.GetStudentDetailsRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
     }
 
     /// <summary>Creates service definition that can be registered with a server</summary>
@@ -44,7 +58,8 @@ namespace BusinessMicroservice {
     public static grpc::ServerServiceDefinition BindService(StudentsGrpServiceBase serviceImpl)
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
-          .AddMethod(__Method_GetStudents, serviceImpl.GetStudents).Build();
+          .AddMethod(__Method_GetStudents, serviceImpl.GetStudents)
+          .AddMethod(__Method_GetStudentDetails, serviceImpl.GetStudentDetails).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the  service binding logic.
@@ -54,6 +69,7 @@ namespace BusinessMicroservice {
     public static void BindService(grpc::ServiceBinderBase serviceBinder, StudentsGrpServiceBase serviceImpl)
     {
       serviceBinder.AddMethod(__Method_GetStudents, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::BusinessMicroservice.GetStudentsRequest, global::BusinessMicroservice.GetStudentsResponse>(serviceImpl.GetStudents));
+      serviceBinder.AddMethod(__Method_GetStudentDetails, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::BusinessMicroservice.GetStudentDetailsRequest, global::BusinessMicroservice.GetStudentDetailsResponse>(serviceImpl.GetStudentDetails));
     }
 
   }

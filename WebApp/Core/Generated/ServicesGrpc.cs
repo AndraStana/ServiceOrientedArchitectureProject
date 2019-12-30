@@ -14,6 +14,8 @@ namespace BusinessMicroservice {
 
     static readonly grpc::Marshaller<global::BusinessMicroservice.GetStudentsRequest> __Marshaller_GetStudentsRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::BusinessMicroservice.GetStudentsRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::BusinessMicroservice.GetStudentsResponse> __Marshaller_GetStudentsResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::BusinessMicroservice.GetStudentsResponse.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::BusinessMicroservice.GetStudentDetailsRequest> __Marshaller_GetStudentDetailsRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::BusinessMicroservice.GetStudentDetailsRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::BusinessMicroservice.GetStudentDetailsResponse> __Marshaller_GetStudentDetailsResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::BusinessMicroservice.GetStudentDetailsResponse.Parser.ParseFrom);
 
     static readonly grpc::Method<global::BusinessMicroservice.GetStudentsRequest, global::BusinessMicroservice.GetStudentsResponse> __Method_GetStudents = new grpc::Method<global::BusinessMicroservice.GetStudentsRequest, global::BusinessMicroservice.GetStudentsResponse>(
         grpc::MethodType.Unary,
@@ -21,6 +23,13 @@ namespace BusinessMicroservice {
         "GetStudents",
         __Marshaller_GetStudentsRequest,
         __Marshaller_GetStudentsResponse);
+
+    static readonly grpc::Method<global::BusinessMicroservice.GetStudentDetailsRequest, global::BusinessMicroservice.GetStudentDetailsResponse> __Method_GetStudentDetails = new grpc::Method<global::BusinessMicroservice.GetStudentDetailsRequest, global::BusinessMicroservice.GetStudentDetailsResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "GetStudentDetails",
+        __Marshaller_GetStudentDetailsRequest,
+        __Marshaller_GetStudentDetailsResponse);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -66,6 +75,22 @@ namespace BusinessMicroservice {
       public virtual grpc::AsyncUnaryCall<global::BusinessMicroservice.GetStudentsResponse> GetStudentsAsync(global::BusinessMicroservice.GetStudentsRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_GetStudents, null, options, request);
+      }
+      public virtual global::BusinessMicroservice.GetStudentDetailsResponse GetStudentDetails(global::BusinessMicroservice.GetStudentDetailsRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetStudentDetails(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::BusinessMicroservice.GetStudentDetailsResponse GetStudentDetails(global::BusinessMicroservice.GetStudentDetailsRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_GetStudentDetails, null, options, request);
+      }
+      public virtual grpc::AsyncUnaryCall<global::BusinessMicroservice.GetStudentDetailsResponse> GetStudentDetailsAsync(global::BusinessMicroservice.GetStudentDetailsRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetStudentDetailsAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncUnaryCall<global::BusinessMicroservice.GetStudentDetailsResponse> GetStudentDetailsAsync(global::BusinessMicroservice.GetStudentDetailsRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_GetStudentDetails, null, options, request);
       }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       protected override StudentsGrpServiceClient NewInstance(ClientBaseConfiguration configuration)

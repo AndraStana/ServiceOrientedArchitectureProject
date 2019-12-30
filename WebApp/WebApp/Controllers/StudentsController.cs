@@ -23,5 +23,16 @@ namespace WebApp.Controllers
             return students;
         }
 
+
+        [HttpGet]
+        public async Task<ActionResult<StudentDetailsModel>> GetStudentDetails(Guid id)
+        {
+            var service = new StudentsService();
+
+            var student = await service.GetStudentDetailsAsync(id);
+
+            return student;
+        }
+
     }
 }

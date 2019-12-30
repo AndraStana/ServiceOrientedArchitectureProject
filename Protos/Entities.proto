@@ -2,6 +2,7 @@ syntax = "proto3";
 
 option csharp_namespace = "BusinessMicroservice";
 
+//-------------------Get Students----------------
 
 message GetStudentsRequest{
 	
@@ -16,4 +17,23 @@ message StudentMessage{
  	string name = 2;
 	int32 yearOfBirth =3;
 	string address = 4;
+}
+
+//-------------------Get Students Details----------------
+
+message GetStudentDetailsRequest{
+	string id = 1;
+}
+
+message GetStudentDetailsResponse{
+	string id = 1;
+ 	string name = 2;
+	int32 yearOfBirth =3;
+	string address = 4;
+	repeated GradeMessage grades = 5;
+}
+
+message GradeMessage{
+	string courseName = 1;
+	repeated int32 marks = 2;
 }

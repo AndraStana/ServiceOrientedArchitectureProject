@@ -6,20 +6,27 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from "src/app/app.component";
 import { StudentsService } from "./services/students-service";
 import { SharedModule } from "src/app/shared/shared-module";
+import { StudentDetailsComponent } from "./components/student-details/student-details.component";
+import { RouterModule } from "@angular/router";
 
 @NgModule({
     declarations: [
-      StudentsPageComponent
+      StudentsPageComponent,
+      StudentDetailsComponent
     ],
     imports: [
       BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
       HttpClientModule,
       FormsModule,
+      RouterModule,
 
       SharedModule
     ],
     providers: [StudentsService],
     bootstrap: [AppComponent],
-    exports: [StudentsPageComponent]
+    exports: [
+      StudentsPageComponent,
+      StudentDetailsComponent
+    ]
   })
   export class StudentsModule { }

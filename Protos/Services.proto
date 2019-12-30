@@ -9,4 +9,5 @@ import "Entities.proto";
 
 service StudentsGrpService {
 	rpc GetStudents (GetStudentsRequest) returns (GetStudentsResponse);
+	rpc GetStudentDetails (GetStudentDetailsRequest) returns (GetStudentDetailsResponse);
 }

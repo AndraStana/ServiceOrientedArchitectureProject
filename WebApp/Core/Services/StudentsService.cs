@@ -38,5 +38,41 @@ namespace Core.Services
                 await channel.ShutdownAsync();
             }
         }
+
+
+        public async Task<StudentDetailsModel> GetStudentDetailsAsync(Guid id)
+        {
+            var channel = new Channel(channelTarget, ChannelCredentials.Insecure);
+            try
+            {
+                var client = new StudentsGrpService.StudentsGrpServiceClient(channel);
+                var request = new GetStudentDetailsRequest()
+                {
+                    Id = id.ToString()
+                };
+
+                var student = await client.GetStudentDetailsAsync(request);
+
+                var studentModel = new StudentDetailsModel()
+                {
+                    Id = Guid.Parse(student.Id),
+                    Name = student.Name,
+                    Address = student.Address,
+                    YearOfBirth = student.YearOfBirth,
+                    Grades = student.Grades.Select(g => new GradeModel()
+                    {
+                        CourseName = g.CourseName,
+                        Marks = g.Marks.ToList()
+                    }).ToList()
+                };
+
+
+                return studentModel;
+            }
+            finally
+            {
+                await channel.ShutdownAsync();
+            }
+        }
     }
 }

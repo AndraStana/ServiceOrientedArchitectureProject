@@ -12,7 +12,7 @@
                 <span class="student-age"> {{currentYear - student.yearOfBirth}} years </span>
                 <span class="student-address"> {{student.address}} </span>
                 <div class="student-actions">
-                    <mat-icon class="details-icon">remove_red_eye</mat-icon>
+                    <mat-icon class="details-icon" [routerLink]="['/student/'+student.id]">remove_red_eye</mat-icon>
                     <mat-icon class="remove-icon">clear</mat-icon>
 
                 </div>

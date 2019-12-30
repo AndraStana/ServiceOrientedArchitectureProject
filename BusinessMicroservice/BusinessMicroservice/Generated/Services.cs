@@ -24,10 +24,11 @@ namespace BusinessMicroservice {
     static ServicesReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Cg5TZXJ2aWNlcy5wcm90bxoORW50aXRpZXMucHJvdG8yTgoSU3R1ZGVudHNH",
-            "cnBTZXJ2aWNlEjgKC0dldFN0dWRlbnRzEhMuR2V0U3R1ZGVudHNSZXF1ZXN0",
-            "GhQuR2V0U3R1ZGVudHNSZXNwb25zZUIXqgIUQnVzaW5lc3NNaWNyb3NlcnZp",
-            "Y2ViBnByb3RvMw=="));
+            "Cg5TZXJ2aWNlcy5wcm90bxoORW50aXRpZXMucHJvdG8ymgEKElN0dWRlbnRz",
+            "R3JwU2VydmljZRI4CgtHZXRTdHVkZW50cxITLkdldFN0dWRlbnRzUmVxdWVz",
+            "dBoULkdldFN0dWRlbnRzUmVzcG9uc2USSgoRR2V0U3R1ZGVudERldGFpbHMS",
+            "GS5HZXRTdHVkZW50RGV0YWlsc1JlcXVlc3QaGi5HZXRTdHVkZW50RGV0YWls",
+            "c1Jlc3BvbnNlQheqAhRCdXNpbmVzc01pY3Jvc2VydmljZWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::BusinessMicroservice.EntitiesReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null));

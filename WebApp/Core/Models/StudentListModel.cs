@@ -11,4 +11,9 @@ namespace Core.Models
         public int YearOfBirth { get; set; }
         public string Address { get; set; }
     }
+
+    public class StudentDetailsModel : StudentListModel
+    {
+        public List<GradeModel> Grades { get; set; }
+    }
 }
