@@ -1,0 +1,17 @@
+
+<div class="modal-container">
+    <h4>{{data.courseName}}</h4>
+
+    <form class="example-form" [formGroup]="markFormGroup">
+
+        <mat-form-field class="example-full-width">
+            <input formControlName="mark" matInput placeholder="Mark" type="number" min="1" max="10">
+            <mat-error *ngIf="showError()">The mark should be between 1 and 10</mat-error>
+        </mat-form-field>
+    </form>
+    <div class="modal-footer" mat-dialog-actions>
+        <button mat-button (click)="onCancel()">Cancel</button>
+        <button mat-button (click)="onSave()" cdkFocusInitial>Save</button>
+    </div>
+
+</div>

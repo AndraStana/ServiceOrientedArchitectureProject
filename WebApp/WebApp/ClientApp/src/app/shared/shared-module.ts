@@ -1,6 +1,6 @@
 import { HttpClientModule } from "@angular/common/http";
 import { BrowserModule } from "@angular/platform-browser";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from "@angular/core";
 import {MatCheckboxModule} from '@angular/material';
@@ -74,6 +74,9 @@ import {MatPaginatorModule} from '@angular/material/paginator';
       MatSortModule,
       MatPaginatorModule,
 
+      ReactiveFormsModule,
+
+
       // RouterModule.forRoot([])
       // RouterModule.forRoot([
       //   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -116,7 +119,9 @@ import {MatPaginatorModule} from '@angular/material/paginator';
         MatSnackBarModule,
         MatTableModule,
         MatSortModule,
-        MatPaginatorModule
+        MatPaginatorModule,
+
+        ReactiveFormsModule
 
     ]
   })

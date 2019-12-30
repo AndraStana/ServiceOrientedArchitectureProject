@@ -62,6 +62,7 @@ namespace Core.Services
                     Grades = student.Grades.Select(g => new GradeModel()
                     {
                         CourseName = g.CourseName,
+                        CourseId = Guid.Parse(g.CourseId),
                         Marks = g.Marks.ToList()
                     }).ToList()
                 };

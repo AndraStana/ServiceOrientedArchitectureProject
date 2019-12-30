@@ -35,5 +35,6 @@ message GetStudentDetailsResponse{
 
 message GradeMessage{
 	string courseName = 1;
+	string courseId = 3;
 	repeated int32 marks = 2;
 }

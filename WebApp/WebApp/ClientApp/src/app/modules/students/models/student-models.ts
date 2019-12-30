@@ -11,5 +11,6 @@ export class StudentDetailsModel extends StudentListModel{
 
 export class GradeModel{
     courseName: string;
+    courseId: string;
     marks: number[];
 }

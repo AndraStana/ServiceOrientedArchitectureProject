@@ -50,6 +50,8 @@ namespace BusinessMicroservice.GrpcServicesImplementations
                 var grade = new GradeMessage()
                 {
                     CourseName = course.Name,
+                    CourseId = course.Id.ToString(),
+
                 };
                 grade.Marks.AddRange(student.Grades.Where(g => g.CourseId == course.Id).Select(g=>g.Mark).ToList());
                 grades.Add(grade);

@@ -1,5 +1,5 @@
 
-<div class="container">
+<div *ngIf="student" class="container">
 
     <h2> {{student.name}} </h2>
 
@@ -20,6 +20,8 @@
             <div class="average-container">
                 <span><b> Average: </b>{{getAverage(grade.marks)| number : '1.2-2'}} </span>
             </div>
+
+            <button (click)="openMarkModal(grade)" mat-raised-button>Add mark</button>
         </mat-card>
     </div>
 

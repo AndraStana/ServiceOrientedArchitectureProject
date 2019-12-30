@@ -31,9 +31,9 @@ namespace BusinessMicroservice {
             "ChhHZXRTdHVkZW50RGV0YWlsc1JlcXVlc3QSCgoCaWQYASABKAkiegoZR2V0",
             "U3R1ZGVudERldGFpbHNSZXNwb25zZRIKCgJpZBgBIAEoCRIMCgRuYW1lGAIg",
             "ASgJEhMKC3llYXJPZkJpcnRoGAMgASgFEg8KB2FkZHJlc3MYBCABKAkSHQoG",
-            "Z3JhZGVzGAUgAygLMg0uR3JhZGVNZXNzYWdlIjEKDEdyYWRlTWVzc2FnZRIS",
-            "Cgpjb3Vyc2VOYW1lGAEgASgJEg0KBW1hcmtzGAIgAygFQheqAhRCdXNpbmVz",
-            "c01pY3Jvc2VydmljZWIGcHJvdG8z"));
+            "Z3JhZGVzGAUgAygLMg0uR3JhZGVNZXNzYWdlIkMKDEdyYWRlTWVzc2FnZRIS",
+            "Cgpjb3Vyc2VOYW1lGAEgASgJEhAKCGNvdXJzZUlkGAMgASgJEg0KBW1hcmtz",
+            "GAIgAygFQheqAhRCdXNpbmVzc01pY3Jvc2VydmljZWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -42,7 +42,7 @@ namespace BusinessMicroservice {
             new pbr::GeneratedClrTypeInfo(typeof(global::BusinessMicroservice.StudentMessage), global::BusinessMicroservice.StudentMessage.Parser, new[]{ "Id", "Name", "YearOfBirth", "Address" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::BusinessMicroservice.GetStudentDetailsRequest), global::BusinessMicroservice.GetStudentDetailsRequest.Parser, new[]{ "Id" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::BusinessMicroservice.GetStudentDetailsResponse), global::BusinessMicroservice.GetStudentDetailsResponse.Parser, new[]{ "Id", "Name", "YearOfBirth", "Address", "Grades" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::BusinessMicroservice.GradeMessage), global::BusinessMicroservice.GradeMessage.Parser, new[]{ "CourseName", "Marks" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::BusinessMicroservice.GradeMessage), global::BusinessMicroservice.GradeMessage.Parser, new[]{ "CourseName", "CourseId", "Marks" }, null, null, null)
           }));
     }
     #endregion
@@ -872,6 +872,7 @@ namespace BusinessMicroservice {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public GradeMessage(GradeMessage other) : this() {
       courseName_ = other.courseName_;
+      courseId_ = other.courseId_;
       marks_ = other.marks_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -889,6 +890,17 @@ namespace BusinessMicroservice {
       get { return courseName_; }
       set {
         courseName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "courseId" field.</summary>
+    public const int CourseIdFieldNumber = 3;
+    private string courseId_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string CourseId {
+      get { return courseId_; }
+      set {
+        courseId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -916,6 +928,7 @@ namespace BusinessMicroservice {
         return true;
       }
       if (CourseName != other.CourseName) return false;
+      if (CourseId != other.CourseId) return false;
       if(!marks_.Equals(other.marks_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -924,6 +937,7 @@ namespace BusinessMicroservice {
     public override int GetHashCode() {
       int hash = 1;
       if (CourseName.Length != 0) hash ^= CourseName.GetHashCode();
+      if (CourseId.Length != 0) hash ^= CourseId.GetHashCode();
       hash ^= marks_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -943,6 +957,10 @@ namespace BusinessMicroservice {
         output.WriteString(CourseName);
       }
       marks_.WriteTo(output, _repeated_marks_codec);
+      if (CourseId.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(CourseId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -953,6 +971,9 @@ namespace BusinessMicroservice {
       int size = 0;
       if (CourseName.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(CourseName);
+      }
+      if (CourseId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(CourseId);
       }
       size += marks_.CalculateSize(_repeated_marks_codec);
       if (_unknownFields != null) {
@@ -968,6 +989,9 @@ namespace BusinessMicroservice {
       }
       if (other.CourseName.Length != 0) {
         CourseName = other.CourseName;
+      }
+      if (other.CourseId.Length != 0) {
+        CourseId = other.CourseId;
       }
       marks_.Add(other.marks_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -988,6 +1012,10 @@ namespace BusinessMicroservice {
           case 18:
           case 16: {
             marks_.AddEntriesFrom(input, _repeated_marks_codec);
+            break;
+          }
+          case 26: {
+            CourseId = input.ReadString();
             break;
           }
         }
