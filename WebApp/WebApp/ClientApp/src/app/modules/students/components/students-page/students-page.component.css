@@ -1,0 +1,54 @@
+
+
+.container{
+    display: flex;
+    flex-direction: column;
+}
+
+h1{
+    margin:auto;
+   
+}
+
+.students-container{
+    margin-top: 20px;
+    border-style: ridge;
+    background-color:#b5c7ba;
+
+}
+
+.student-card{
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.student-name{
+    flex: 4;
+}
+
+.student-age{
+    flex: 4;
+}
+
+.student-address{
+    flex: 3;
+}
+.student-actions{
+    flex:1;
+}
+
+.remove-icon{
+    color:#bd0d22;
+    margin-left:10px;
+
+}
+
+.details-icon{
+    color:#7d7f82;
+}
+
+mat-icon{
+    cursor: pointer;
+}
+

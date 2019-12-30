@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { StudentsPageComponent } from './modules/students/components/students-page/students-page.component';
 import { StudentsModule } from './modules/students/students-module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { StudentsModule } from './modules/students/students-module';
 
      RouterModule.forRoot([
       { path: '', component: StudentsPageComponent, pathMatch: 'full' },
-    ])
+    ]),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

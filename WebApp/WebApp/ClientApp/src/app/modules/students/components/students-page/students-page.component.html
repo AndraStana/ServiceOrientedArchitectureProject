@@ -1,6 +1,33 @@
-<p>students-page works!</p>
+
+<div class="container">
+    <h1>Students</h1>
+
+    <mat-card class="students-container">
 
 
-<div *ngFor="let student of students">
-    <span> {{student.name}} </span>
+
+        <div *ngFor="let student of students">
+            <mat-card class="student-card">
+                <span class="student-name"> {{student.name}} </span>
+                <span class="student-age"> {{currentYear - student.yearOfBirth}} years </span>
+                <span class="student-address"> {{student.address}} </span>
+                <div class="student-actions">
+                    <mat-icon class="details-icon">remove_red_eye</mat-icon>
+                    <mat-icon class="remove-icon">clear</mat-icon>
+
+                </div>
+            
+            </mat-card>
+            
+        </div>
+
+
+
+    </mat-card>
+
+
+
+
 </div>
+
+

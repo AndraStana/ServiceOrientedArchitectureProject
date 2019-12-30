@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from "src/app/app.component";
 import { StudentsService } from "./services/students-service";
+import { SharedModule } from "src/app/shared/shared-module";
 
 @NgModule({
     declarations: [
@@ -13,7 +14,9 @@ import { StudentsService } from "./services/students-service";
     imports: [
       BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
       HttpClientModule,
-      FormsModule
+      FormsModule,
+
+      SharedModule
     ],
     providers: [StudentsService],
     bootstrap: [AppComponent],

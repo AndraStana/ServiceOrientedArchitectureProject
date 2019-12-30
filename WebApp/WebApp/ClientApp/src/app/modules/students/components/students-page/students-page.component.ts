@@ -10,6 +10,7 @@ import { StudentListModel } from '../../models/student-models';
 export class StudentsPageComponent implements OnInit {
 
   public students: StudentListModel[];
+  public currentYear= new Date().getFullYear();
 
   constructor(private studentsService: StudentsService ) { }
 
