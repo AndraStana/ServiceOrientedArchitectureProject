@@ -13,6 +13,8 @@ export class StudentDetailsComponent implements OnInit {
   public student: StudentDetailsModel;
 
   private studentId: string;
+  public currentYear= new Date().getFullYear();
+
 
   constructor(private route: ActivatedRoute, private studentsService: StudentsService) {}
 
@@ -21,6 +23,17 @@ export class StudentDetailsComponent implements OnInit {
 
     this.studentsService.getStudentDetails(this.studentId).subscribe(res =>
       {this.student = res;});
+  }
+
+  public getAverage(marks: number[]): number{
+    var sum = 0;
+    for( var mark of marks){
+      sum+=mark;
+    }
+
+    return sum/marks.length;
+
+
   }
 
 }

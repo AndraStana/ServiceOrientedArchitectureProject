@@ -1,2 +1,26 @@
-<p>student-details works!</p>
-<span>NUMELEEE MEU ESTE: {{student.name}} </span>
+
+<div class="container">
+
+    <h2> {{student.name}} </h2>
+
+    <mat-card class="user-details-container">
+        <span> <b> Age: </b> {{currentYear - student.yearOfBirth}} years  </span>
+        <span> <b> Address:  </b> {{student.address}} </span>
+    </mat-card>
+
+  
+
+
+    <div *ngFor="let grade of student.grades">
+        <mat-card class="grade-container">
+            <span class="course-name-container"> <b>{{grade.courseName}} </b></span>
+            <div class="marks-container" *ngFor="let mark of grade.marks">
+                <span > {{mark}} </span>
+            </div>
+            <div class="average-container">
+                <span><b> Average: </b>{{getAverage(grade.marks)| number : '1.2-2'}} </span>
+            </div>
+        </mat-card>
+    </div>
+
+</div>

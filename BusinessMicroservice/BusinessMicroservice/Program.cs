@@ -17,6 +17,8 @@ namespace BusinessMicroservice
         {
                 Console.WriteLine("Start...");
 
+                InitializeDb();
+
                 const string DefaultHost = "localhost";
                 const int Port = 50051;
 
@@ -36,9 +38,8 @@ namespace BusinessMicroservice
                 tokenSource.Cancel();
                 Console.WriteLine("Shutting down...");
                 serverTask.Wait();
-                
 
-                //InitializeDb();
+
 
             Console.WriteLine("Press any key to exit...");
                 Console.ReadKey();
@@ -88,13 +89,27 @@ namespace BusinessMicroservice
 
         private static void AddGrades(StudentsContext db)
         {
-            db.Grades.Add(new Grade()
-                {Id = Guid.NewGuid(), Mark = 10, StudentId = db.Students.First().Id, CourseId = db.Courses.First().Id});
+            var students = db.Students.ToList();
+            var courses = db.Courses.ToList();
 
-            db.Grades.Add(new Grade()
-                { Id = Guid.NewGuid(), Mark = 7, StudentId = db.Students.First().Id, CourseId = db.Courses.First().Id });
+            var random =new Random();
+
+            foreach (var student in students)
+            {
+                foreach (var course in courses)
+                {
+                    db.Grades.Add(new Grade()
+                        { Id = Guid.NewGuid(), Mark = random.Next(3,11), StudentId = student.Id, CourseId = course.Id });
+
+                    db.Grades.Add(new Grade()
+                        { Id = Guid.NewGuid(), Mark = random.Next(3, 11), StudentId = student.Id, CourseId = course.Id });
+
+                    db.Grades.Add(new Grade()
+                        { Id = Guid.NewGuid(), Mark = random.Next(3, 11), StudentId = student.Id, CourseId = course.Id });
+                }
+            }
+         
             db.SaveChanges();
-
         }
 
         private static void AddCourses(StudentsContext db)
@@ -115,6 +130,13 @@ namespace BusinessMicroservice
             db.Students.Add(new Student() { Id = Guid.NewGuid(), Name = "Raluca Iovan", YearOfBirth = 1996, Address = "Strada Ploplor, Cluj-Napoca" });
             db.Students.Add(new Student() { Id = Guid.NewGuid(), Name = "Cristina Popivici", YearOfBirth = 1995, Address = "Strada Ploplor, Cluj-Napoca" });
             db.Students.Add(new Student() { Id = Guid.NewGuid(), Name = "Andreea Daniel", YearOfBirth = 1994, Address = "Strada Ploplor, Cluj-Napoca" });
+            db.Students.Add(new Student() { Id = Guid.NewGuid(), Name = "Costica Popescu", YearOfBirth = 1997, Address = "Strada Ploplor, Cluj-Napoca" });
+            db.Students.Add(new Student() { Id = Guid.NewGuid(), Name = "Marian Ioan", YearOfBirth = 1997, Address = "Strada Ploplor, Cluj-Napoca" });
+            db.Students.Add(new Student() { Id = Guid.NewGuid(), Name = "Andrei Cramas", YearOfBirth = 1996, Address = "Strada Ploplor, Cluj-Napoca" });
+            db.Students.Add(new Student() { Id = Guid.NewGuid(), Name = "Cristian Ionel", YearOfBirth = 1995, Address = "Strada Ploplor, Cluj-Napoca" });
+            db.Students.Add(new Student() { Id = Guid.NewGuid(), Name = "Paul Ardelene", YearOfBirth = 1994, Address = "Strada Ploplor, Cluj-Napoca" });
+
+
             db.SaveChanges();
 
         }

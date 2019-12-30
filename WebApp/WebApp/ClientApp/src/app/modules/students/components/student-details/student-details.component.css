@@ -1,0 +1,39 @@
+
+.container{
+    display: flex;
+    flex-direction:column;
+}
+
+.grade-container{
+    background-color: #e3b6b3;
+    margin:10px;
+    display: flex;
+    flex-direction:row;
+}
+
+h2{
+    margin: auto;
+}
+
+.user-details-container{
+    background-color: #b5c7ba;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin:30px;
+    padding:30px;
+}
+
+
+.course-name-container{
+    flex: 5;
+}
+
+.marks-container{
+    flex: 4;
+
+}
+
+.average-container{
+    flex: 3;
+}
