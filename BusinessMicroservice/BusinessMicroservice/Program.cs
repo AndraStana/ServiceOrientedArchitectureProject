@@ -24,7 +24,11 @@ namespace BusinessMicroservice
 
                 var server = new Server
                 {
-                    Services = { StudentsGrpService.BindService(new StudentsGrpcServiceImpl()) },
+                    Services = { StudentsGrpcService.BindService(new StudentsGrpcServiceImpl()),
+                        GradesGrpcService.BindService(new GradesGrpcServiceImpl())
+
+                        
+                     },
                     Ports = { new ServerPort(DefaultHost, Port, ServerCredentials.Insecure) }
                 };
 

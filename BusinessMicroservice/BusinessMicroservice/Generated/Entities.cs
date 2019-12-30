@@ -33,7 +33,9 @@ namespace BusinessMicroservice {
             "ASgJEhMKC3llYXJPZkJpcnRoGAMgASgFEg8KB2FkZHJlc3MYBCABKAkSHQoG",
             "Z3JhZGVzGAUgAygLMg0uR3JhZGVNZXNzYWdlIkMKDEdyYWRlTWVzc2FnZRIS",
             "Cgpjb3Vyc2VOYW1lGAEgASgJEhAKCGNvdXJzZUlkGAMgASgJEg0KBW1hcmtz",
-            "GAIgAygFQheqAhRCdXNpbmVzc01pY3Jvc2VydmljZWIGcHJvdG8z"));
+            "GAIgAygFIkQKD0FkZEdyYWRlUmVxdWVzdBIQCghjb3Vyc2VJZBgBIAEoCRIR",
+            "CglzdHVkZW50SWQYAiABKAkSDAoEbWFyaxgDIAEoBSISChBBZGRHcmFkZVJl",
+            "c3BvbnNlQheqAhRCdXNpbmVzc01pY3Jvc2VydmljZWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -42,7 +44,9 @@ namespace BusinessMicroservice {
             new pbr::GeneratedClrTypeInfo(typeof(global::BusinessMicroservice.StudentMessage), global::BusinessMicroservice.StudentMessage.Parser, new[]{ "Id", "Name", "YearOfBirth", "Address" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::BusinessMicroservice.GetStudentDetailsRequest), global::BusinessMicroservice.GetStudentDetailsRequest.Parser, new[]{ "Id" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::BusinessMicroservice.GetStudentDetailsResponse), global::BusinessMicroservice.GetStudentDetailsResponse.Parser, new[]{ "Id", "Name", "YearOfBirth", "Address", "Grades" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::BusinessMicroservice.GradeMessage), global::BusinessMicroservice.GradeMessage.Parser, new[]{ "CourseName", "CourseId", "Marks" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::BusinessMicroservice.GradeMessage), global::BusinessMicroservice.GradeMessage.Parser, new[]{ "CourseName", "CourseId", "Marks" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::BusinessMicroservice.AddGradeRequest), global::BusinessMicroservice.AddGradeRequest.Parser, new[]{ "CourseId", "StudentId", "Mark" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::BusinessMicroservice.AddGradeResponse), global::BusinessMicroservice.AddGradeResponse.Parser, null, null, null, null)
           }));
     }
     #endregion
@@ -1018,6 +1022,292 @@ namespace BusinessMicroservice {
             CourseId = input.ReadString();
             break;
           }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class AddGradeRequest : pb::IMessage<AddGradeRequest> {
+    private static readonly pb::MessageParser<AddGradeRequest> _parser = new pb::MessageParser<AddGradeRequest>(() => new AddGradeRequest());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<AddGradeRequest> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::BusinessMicroservice.EntitiesReflection.Descriptor.MessageTypes[6]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public AddGradeRequest() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public AddGradeRequest(AddGradeRequest other) : this() {
+      courseId_ = other.courseId_;
+      studentId_ = other.studentId_;
+      mark_ = other.mark_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public AddGradeRequest Clone() {
+      return new AddGradeRequest(this);
+    }
+
+    /// <summary>Field number for the "courseId" field.</summary>
+    public const int CourseIdFieldNumber = 1;
+    private string courseId_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string CourseId {
+      get { return courseId_; }
+      set {
+        courseId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "studentId" field.</summary>
+    public const int StudentIdFieldNumber = 2;
+    private string studentId_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string StudentId {
+      get { return studentId_; }
+      set {
+        studentId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "mark" field.</summary>
+    public const int MarkFieldNumber = 3;
+    private int mark_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Mark {
+      get { return mark_; }
+      set {
+        mark_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as AddGradeRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(AddGradeRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (CourseId != other.CourseId) return false;
+      if (StudentId != other.StudentId) return false;
+      if (Mark != other.Mark) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (CourseId.Length != 0) hash ^= CourseId.GetHashCode();
+      if (StudentId.Length != 0) hash ^= StudentId.GetHashCode();
+      if (Mark != 0) hash ^= Mark.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (CourseId.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(CourseId);
+      }
+      if (StudentId.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(StudentId);
+      }
+      if (Mark != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(Mark);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (CourseId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(CourseId);
+      }
+      if (StudentId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(StudentId);
+      }
+      if (Mark != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Mark);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(AddGradeRequest other) {
+      if (other == null) {
+        return;
+      }
+      if (other.CourseId.Length != 0) {
+        CourseId = other.CourseId;
+      }
+      if (other.StudentId.Length != 0) {
+        StudentId = other.StudentId;
+      }
+      if (other.Mark != 0) {
+        Mark = other.Mark;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            CourseId = input.ReadString();
+            break;
+          }
+          case 18: {
+            StudentId = input.ReadString();
+            break;
+          }
+          case 24: {
+            Mark = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class AddGradeResponse : pb::IMessage<AddGradeResponse> {
+    private static readonly pb::MessageParser<AddGradeResponse> _parser = new pb::MessageParser<AddGradeResponse>(() => new AddGradeResponse());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<AddGradeResponse> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::BusinessMicroservice.EntitiesReflection.Descriptor.MessageTypes[7]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public AddGradeResponse() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public AddGradeResponse(AddGradeResponse other) : this() {
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public AddGradeResponse Clone() {
+      return new AddGradeResponse(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as AddGradeResponse);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(AddGradeResponse other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(AddGradeResponse other) {
+      if (other == null) {
+        return;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
         }
       }
     }

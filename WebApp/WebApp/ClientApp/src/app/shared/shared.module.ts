@@ -33,6 +33,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { GradesService } from "./services/grades-service";
 
 @NgModule({
     declarations: [
@@ -86,8 +87,6 @@ import {MatPaginatorModule} from '@angular/material/paginator';
   
       BrowserAnimationsModule
     ],
-    providers: [],
-
     exports:[
         MatCheckboxModule,
         MatCheckboxModule,
@@ -122,7 +121,10 @@ import {MatPaginatorModule} from '@angular/material/paginator';
         MatPaginatorModule,
 
         ReactiveFormsModule
+        
 
-    ]
+
+    ],
+    providers:[GradesService]
   })
   export class SharedModule { }

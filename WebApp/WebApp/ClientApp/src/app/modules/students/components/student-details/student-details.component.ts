@@ -4,6 +4,8 @@ import { StudentsService } from '../../services/students-service';
 import { StudentDetailsModel, GradeModel } from '../../models/student-models';
 import { MatDialog } from '@angular/material';
 import { AddMarkDialogComponent } from '../add-mark-dialog/add-mark-dialog.component';
+import { GradesService } from 'src/app/shared/services/grades-service';
+import { AddGradeModel } from 'src/app/shared/models/grades-models';
 
 @Component({
   selector: 'app-student-details',
@@ -18,7 +20,7 @@ export class StudentDetailsComponent implements OnInit {
   public currentYear= new Date().getFullYear();
 
 
-  constructor(private route: ActivatedRoute, private studentsService: StudentsService, public dialog: MatDialog) {}
+  constructor(private route: ActivatedRoute, private studentsService: StudentsService, private gradesService: GradesService, private dialog: MatDialog) {}
 
   ngOnInit() {
     this.studentId = this.route.snapshot.paramMap.get('id');
@@ -47,7 +49,20 @@ export class StudentDetailsComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
 
       console.log('The dialog was closed', result);
-      // this.animal = result;
+        if(result !== undefined && result !== null ){
+
+          var addGrade = <AddGradeModel>{
+            courseId: grade.courseId,
+            studentId: this.studentId,
+            mark: result
+          }
+
+          this.gradesService.addGrade(addGrade).subscribe(res =>{
+             this.studentsService.getStudentDetails(this.studentId).subscribe(res =>{
+              this.student = res;
+            });
+          }) 
+        }
     });
   }
     

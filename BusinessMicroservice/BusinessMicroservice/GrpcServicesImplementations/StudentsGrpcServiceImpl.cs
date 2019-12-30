@@ -9,7 +9,7 @@ using Grpc.Core;
 
 namespace BusinessMicroservice.GrpcServicesImplementations
 {
-    public class StudentsGrpcServiceImpl : StudentsGrpService.StudentsGrpServiceBase
+    public class StudentsGrpcServiceImpl : StudentsGrpcService.StudentsGrpcServiceBase
     {
         public StudentsService StudentsService { get; set; }
         public StudentsGrpcServiceImpl()

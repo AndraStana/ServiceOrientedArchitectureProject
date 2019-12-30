@@ -38,3 +38,15 @@ message GradeMessage{
 	string courseId = 3;
 	repeated int32 marks = 2;
 }
+
+//-------------------Add Mark----------------
+
+message AddGradeRequest{
+	string courseId = 1;
+	string studentId = 2;
+	int32 mark = 3;
+}
+
+message AddGradeResponse{
+
+}

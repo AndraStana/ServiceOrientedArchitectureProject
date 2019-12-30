@@ -24,11 +24,13 @@ namespace BusinessMicroservice {
     static ServicesReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Cg5TZXJ2aWNlcy5wcm90bxoORW50aXRpZXMucHJvdG8ymgEKElN0dWRlbnRz",
-            "R3JwU2VydmljZRI4CgtHZXRTdHVkZW50cxITLkdldFN0dWRlbnRzUmVxdWVz",
-            "dBoULkdldFN0dWRlbnRzUmVzcG9uc2USSgoRR2V0U3R1ZGVudERldGFpbHMS",
-            "GS5HZXRTdHVkZW50RGV0YWlsc1JlcXVlc3QaGi5HZXRTdHVkZW50RGV0YWls",
-            "c1Jlc3BvbnNlQheqAhRCdXNpbmVzc01pY3Jvc2VydmljZWIGcHJvdG8z"));
+            "Cg5TZXJ2aWNlcy5wcm90bxoORW50aXRpZXMucHJvdG8ymwEKE1N0dWRlbnRz",
+            "R3JwY1NlcnZpY2USOAoLR2V0U3R1ZGVudHMSEy5HZXRTdHVkZW50c1JlcXVl",
+            "c3QaFC5HZXRTdHVkZW50c1Jlc3BvbnNlEkoKEUdldFN0dWRlbnREZXRhaWxz",
+            "EhkuR2V0U3R1ZGVudERldGFpbHNSZXF1ZXN0GhouR2V0U3R1ZGVudERldGFp",
+            "bHNSZXNwb25zZTJEChFHcmFkZXNHcnBjU2VydmljZRIvCghBZGRHcmFkZRIQ",
+            "LkFkZEdyYWRlUmVxdWVzdBoRLkFkZEdyYWRlUmVzcG9uc2VCF6oCFEJ1c2lu",
+            "ZXNzTWljcm9zZXJ2aWNlYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::BusinessMicroservice.EntitiesReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null));

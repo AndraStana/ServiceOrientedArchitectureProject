@@ -25,4 +25,5 @@ export class StudentsService{
 
         return this.httpClient.get<StudentDetailsModel>(url, {params});
     }
+
 }

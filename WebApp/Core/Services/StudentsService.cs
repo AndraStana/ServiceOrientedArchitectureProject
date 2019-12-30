@@ -17,7 +17,7 @@ namespace Core.Services
             var channel = new Channel(channelTarget, ChannelCredentials.Insecure);
             try
             {
-                var client = new StudentsGrpService.StudentsGrpServiceClient(channel);
+                var client = new StudentsGrpcService.StudentsGrpcServiceClient(channel);
                 var request = new GetStudentsRequest();
 
                 var response = await client.GetStudentsAsync(request);
@@ -45,7 +45,7 @@ namespace Core.Services
             var channel = new Channel(channelTarget, ChannelCredentials.Insecure);
             try
             {
-                var client = new StudentsGrpService.StudentsGrpServiceClient(channel);
+                var client = new StudentsGrpcService.StudentsGrpcServiceClient(channel);
                 var request = new GetStudentDetailsRequest()
                 {
                     Id = id.ToString()

@@ -14,10 +14,15 @@ namespace WebApp.Controllers
     public class StudentsController : ControllerBase
     {
 
+        public StudentsService service;
+        public StudentsController()
+        {
+             service = new StudentsService();
+        }
+
         [HttpGet]
         public async Task<ActionResult<List<StudentListModel>>> GetStudents()
         {
-            var service = new StudentsService();
 
             var students = await service.GetStudentsAsync();
             return students;
@@ -27,10 +32,7 @@ namespace WebApp.Controllers
         [HttpGet]
         public async Task<ActionResult<StudentDetailsModel>> GetStudentDetails(Guid id)
         {
-            var service = new StudentsService();
-
             var student = await service.GetStudentDetailsAsync(id);
-
             return student;
         }
 

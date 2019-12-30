@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from "src/app/app.component";
 import { StudentsService } from "./services/students-service";
-import { SharedModule } from "src/app/shared/shared-module";
+import { SharedModule } from "src/app/shared/shared.module";
 import { StudentDetailsComponent } from "./components/student-details/student-details.component";
 import { RouterModule } from "@angular/router";
 import { AddMarkDialogComponent } from "./components/add-mark-dialog/add-mark-dialog.component";
