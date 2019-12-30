@@ -16,6 +16,8 @@ namespace BusinessMicroservice {
     static readonly grpc::Marshaller<global::BusinessMicroservice.GetStudentsResponse> __Marshaller_GetStudentsResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::BusinessMicroservice.GetStudentsResponse.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::BusinessMicroservice.GetStudentDetailsRequest> __Marshaller_GetStudentDetailsRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::BusinessMicroservice.GetStudentDetailsRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::BusinessMicroservice.GetStudentDetailsResponse> __Marshaller_GetStudentDetailsResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::BusinessMicroservice.GetStudentDetailsResponse.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::BusinessMicroservice.DeleteStudentRequest> __Marshaller_DeleteStudentRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::BusinessMicroservice.DeleteStudentRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::BusinessMicroservice.DeleteStudentResponse> __Marshaller_DeleteStudentResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::BusinessMicroservice.DeleteStudentResponse.Parser.ParseFrom);
 
     static readonly grpc::Method<global::BusinessMicroservice.GetStudentsRequest, global::BusinessMicroservice.GetStudentsResponse> __Method_GetStudents = new grpc::Method<global::BusinessMicroservice.GetStudentsRequest, global::BusinessMicroservice.GetStudentsResponse>(
         grpc::MethodType.Unary,
@@ -30,6 +32,13 @@ namespace BusinessMicroservice {
         "GetStudentDetails",
         __Marshaller_GetStudentDetailsRequest,
         __Marshaller_GetStudentDetailsResponse);
+
+    static readonly grpc::Method<global::BusinessMicroservice.DeleteStudentRequest, global::BusinessMicroservice.DeleteStudentResponse> __Method_DeleteStudent = new grpc::Method<global::BusinessMicroservice.DeleteStudentRequest, global::BusinessMicroservice.DeleteStudentResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "DeleteStudent",
+        __Marshaller_DeleteStudentRequest,
+        __Marshaller_DeleteStudentResponse);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -91,6 +100,22 @@ namespace BusinessMicroservice {
       public virtual grpc::AsyncUnaryCall<global::BusinessMicroservice.GetStudentDetailsResponse> GetStudentDetailsAsync(global::BusinessMicroservice.GetStudentDetailsRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_GetStudentDetails, null, options, request);
+      }
+      public virtual global::BusinessMicroservice.DeleteStudentResponse DeleteStudent(global::BusinessMicroservice.DeleteStudentRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return DeleteStudent(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::BusinessMicroservice.DeleteStudentResponse DeleteStudent(global::BusinessMicroservice.DeleteStudentRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_DeleteStudent, null, options, request);
+      }
+      public virtual grpc::AsyncUnaryCall<global::BusinessMicroservice.DeleteStudentResponse> DeleteStudentAsync(global::BusinessMicroservice.DeleteStudentRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return DeleteStudentAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncUnaryCall<global::BusinessMicroservice.DeleteStudentResponse> DeleteStudentAsync(global::BusinessMicroservice.DeleteStudentRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_DeleteStudent, null, options, request);
       }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       protected override StudentsGrpcServiceClient NewInstance(ClientBaseConfiguration configuration)

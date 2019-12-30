@@ -14,8 +14,6 @@ export class AddMarkDialogData{
 })
 export class AddMarkDialogComponent implements OnInit {
 
-  
-
   markFormGroup : FormGroup ;
 
   constructor(
@@ -25,26 +23,18 @@ export class AddMarkDialogComponent implements OnInit {
 
 
   ngOnInit() {
-
       this.markFormGroup = new FormGroup({
         mark: new FormControl(null, [Validators.required, Validators.min(1), Validators.max(10)])
       });
   }
 
   public onSave(): void{
-
     if(this.markFormGroup.get("mark").valid){
       this.dialogRef.close(this.markFormGroup.get("mark").value);
     }
     else{
       this.markFormGroup.get("mark").markAsTouched();
     }
-
-
-    // var mark = this.markFormGroup.get("mark").value;
-
-    // if(mark !== undefined && mark !== null){
-    // }
   }
 
 

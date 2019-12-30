@@ -14,10 +14,7 @@ export class GradesService{
     
     public addGrade( model: AddGradeModel): Observable<void>{
         var url = `${this.baseUrl}/AddGrade` ;
-
-        // return this.httpClient.post<void>(url, model);
         return this.httpClient.post<void>(url, model );
-
     }
 
 }

@@ -22,8 +22,13 @@ export class StudentsService{
         var params = {
             id
         }
-
         return this.httpClient.get<StudentDetailsModel>(url, {params});
+    }
+
+    public deleteStudent(id: string):Observable<void>{
+        var url = `${this.baseUrl}/DeleteStudent/` ;
+
+        return this.httpClient.delete<void>(url + id );
     }
 
 }

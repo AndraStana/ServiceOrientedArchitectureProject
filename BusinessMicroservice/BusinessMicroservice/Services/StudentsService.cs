@@ -5,6 +5,7 @@ using System.Text;
 using BusinessMicroservice.Database;
 using BusinessMicroservice.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query.Internal;
 
 namespace BusinessMicroservice.Services
 {
@@ -23,11 +24,26 @@ namespace BusinessMicroservice.Services
         {
             using var db = new StudentsContext();
             var student = db.Students
-                .Include(s=>s.Grades)
+                .Include(s => s.Grades)
                 .ThenInclude(g => g.Course)
                 .FirstOrDefault(s => s.Id == id);
             return student;
         }
 
+        public void DeleteStudent(Guid id)
+        {
+            using var db = new StudentsContext();
+
+            var grades = db.Grades.Where(g => g.StudentId == id).ToList();
+            db.Grades.RemoveRange(grades);
+
+            var student = db.Students.First(s => s.Id == id);
+
+            db.Students.Remove(student);
+            db.SaveChanges();
+        }
+
     }
+
 }
+

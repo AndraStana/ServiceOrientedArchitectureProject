@@ -16,6 +16,8 @@ namespace BusinessMicroservice {
     static readonly grpc::Marshaller<global::BusinessMicroservice.GetStudentsResponse> __Marshaller_GetStudentsResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::BusinessMicroservice.GetStudentsResponse.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::BusinessMicroservice.GetStudentDetailsRequest> __Marshaller_GetStudentDetailsRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::BusinessMicroservice.GetStudentDetailsRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::BusinessMicroservice.GetStudentDetailsResponse> __Marshaller_GetStudentDetailsResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::BusinessMicroservice.GetStudentDetailsResponse.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::BusinessMicroservice.DeleteStudentRequest> __Marshaller_DeleteStudentRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::BusinessMicroservice.DeleteStudentRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::BusinessMicroservice.DeleteStudentResponse> __Marshaller_DeleteStudentResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::BusinessMicroservice.DeleteStudentResponse.Parser.ParseFrom);
 
     static readonly grpc::Method<global::BusinessMicroservice.GetStudentsRequest, global::BusinessMicroservice.GetStudentsResponse> __Method_GetStudents = new grpc::Method<global::BusinessMicroservice.GetStudentsRequest, global::BusinessMicroservice.GetStudentsResponse>(
         grpc::MethodType.Unary,
@@ -30,6 +32,13 @@ namespace BusinessMicroservice {
         "GetStudentDetails",
         __Marshaller_GetStudentDetailsRequest,
         __Marshaller_GetStudentDetailsResponse);
+
+    static readonly grpc::Method<global::BusinessMicroservice.DeleteStudentRequest, global::BusinessMicroservice.DeleteStudentResponse> __Method_DeleteStudent = new grpc::Method<global::BusinessMicroservice.DeleteStudentRequest, global::BusinessMicroservice.DeleteStudentResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "DeleteStudent",
+        __Marshaller_DeleteStudentRequest,
+        __Marshaller_DeleteStudentResponse);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -51,6 +60,11 @@ namespace BusinessMicroservice {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
+      public virtual global::System.Threading.Tasks.Task<global::BusinessMicroservice.DeleteStudentResponse> DeleteStudent(global::BusinessMicroservice.DeleteStudentRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
     }
 
     /// <summary>Creates service definition that can be registered with a server</summary>
@@ -59,7 +73,8 @@ namespace BusinessMicroservice {
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
           .AddMethod(__Method_GetStudents, serviceImpl.GetStudents)
-          .AddMethod(__Method_GetStudentDetails, serviceImpl.GetStudentDetails).Build();
+          .AddMethod(__Method_GetStudentDetails, serviceImpl.GetStudentDetails)
+          .AddMethod(__Method_DeleteStudent, serviceImpl.DeleteStudent).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the  service binding logic.
@@ -70,6 +85,7 @@ namespace BusinessMicroservice {
     {
       serviceBinder.AddMethod(__Method_GetStudents, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::BusinessMicroservice.GetStudentsRequest, global::BusinessMicroservice.GetStudentsResponse>(serviceImpl.GetStudents));
       serviceBinder.AddMethod(__Method_GetStudentDetails, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::BusinessMicroservice.GetStudentDetailsRequest, global::BusinessMicroservice.GetStudentDetailsResponse>(serviceImpl.GetStudentDetails));
+      serviceBinder.AddMethod(__Method_DeleteStudent, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::BusinessMicroservice.DeleteStudentRequest, global::BusinessMicroservice.DeleteStudentResponse>(serviceImpl.DeleteStudent));
     }
 
   }

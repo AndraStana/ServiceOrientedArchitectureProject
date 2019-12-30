@@ -39,6 +39,18 @@ message GradeMessage{
 	repeated int32 marks = 2;
 }
 
+
+//-------------------Delete Student----------------
+
+message DeleteStudentRequest{
+	string id = 1;
+}
+
+message DeleteStudentResponse{
+
+}
+
+
 //-------------------Add Mark----------------
 
 message AddGradeRequest{

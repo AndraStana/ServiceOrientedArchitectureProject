@@ -1,11 +1,9 @@
-﻿using System;
+﻿using BusinessMicroservice.Services;
+using Grpc.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using BusinessMicroservice.Entities;
-using BusinessMicroservice.Services;
-using Grpc.Core;
 
 namespace BusinessMicroservice.GrpcServicesImplementations
 {
@@ -40,7 +38,6 @@ namespace BusinessMicroservice.GrpcServicesImplementations
         {
             var student = StudentsService.GetStudentDetails(Guid.Parse(request.Id));
 
-
             var allCourses = student.Grades.Select(g => g.Course).Distinct();
 
             var grades = new List<GradeMessage>();
@@ -68,6 +65,17 @@ namespace BusinessMicroservice.GrpcServicesImplementations
             response.Grades.AddRange(grades);
 
             return Task.FromResult(response);
+        }
+
+
+        public override Task<DeleteStudentResponse> DeleteStudent(DeleteStudentRequest request,
+            ServerCallContext context)
+        {
+            StudentsService.DeleteStudent(Guid.Parse(request.Id));
+
+            var response = new DeleteStudentResponse();
+            return Task.FromResult(response);
+
         }
     }
 }

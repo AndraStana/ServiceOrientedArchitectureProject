@@ -75,5 +75,25 @@ namespace Core.Services
                 await channel.ShutdownAsync();
             }
         }
+
+
+        public async void DeleteStudentAsync(Guid id)
+        {
+            var channel = new Channel(channelTarget, ChannelCredentials.Insecure);
+            try
+            {
+                var client = new StudentsGrpcService.StudentsGrpcServiceClient(channel);
+                var request = new DeleteStudentRequest()
+                {
+                    Id = id.ToString()
+                };
+
+                 await client.DeleteStudentAsync(request);
+            }
+            finally
+            {
+                await channel.ShutdownAsync();
+            }
+        }
     }
 }

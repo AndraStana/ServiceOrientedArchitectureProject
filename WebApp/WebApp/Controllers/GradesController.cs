@@ -23,11 +23,12 @@ namespace WebApp.Controllers
 
         [HttpPost]
 
-        public async void AddGrade([FromBody] AddGradeModel model)
+        public  void AddGrade([FromBody] AddGradeModel model)
         {
              service.AddGradeAsync(model);
         }
 
+      
 
 
         // GET: api/<controller>

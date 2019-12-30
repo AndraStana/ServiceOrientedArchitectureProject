@@ -13,7 +13,7 @@
                 <span class="student-address"> {{student.address}} </span>
                 <div class="student-actions">
                     <mat-icon class="details-icon" [routerLink]="['/student/'+student.id]">remove_red_eye</mat-icon>
-                    <mat-icon class="remove-icon">clear</mat-icon>
+                    <mat-icon class="remove-icon" (click)="deleteStudent(student.id, student.name)">clear</mat-icon>
 
                 </div>
             

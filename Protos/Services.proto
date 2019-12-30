@@ -10,6 +10,7 @@ import "Entities.proto";
 service StudentsGrpcService {
 	rpc GetStudents (GetStudentsRequest) returns (GetStudentsResponse);
 	rpc GetStudentDetails (GetStudentDetailsRequest) returns (GetStudentDetailsResponse);
+	rpc DeleteStudent (DeleteStudentRequest) returns (DeleteStudentResponse);
 }
 
 service GradesGrpcService{

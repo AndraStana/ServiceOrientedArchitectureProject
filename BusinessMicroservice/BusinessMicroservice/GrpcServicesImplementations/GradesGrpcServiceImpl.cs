@@ -28,7 +28,6 @@ namespace BusinessMicroservice.GrpcServicesImplementations
             });
 
             return  Task.FromResult(new AddGradeResponse());
-
         }
 
     }

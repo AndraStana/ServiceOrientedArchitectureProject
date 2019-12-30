@@ -34,10 +34,11 @@ import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { GradesService } from "./services/grades-service";
+import { ConfirmationModalComponent } from './components/confirmation-modal/confirmation-modal.component';
 
 @NgModule({
     declarations: [
-    ],
+    ConfirmationModalComponent],
     imports: [
       BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
       HttpClientModule,
@@ -120,11 +121,13 @@ import { GradesService } from "./services/grades-service";
         MatSortModule,
         MatPaginatorModule,
 
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        ConfirmationModalComponent
         
 
 
     ],
-    providers:[GradesService]
+    providers:[GradesService],
+    entryComponents:[ConfirmationModalComponent]
   })
   export class SharedModule { }

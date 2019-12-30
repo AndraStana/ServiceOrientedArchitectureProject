@@ -23,7 +23,6 @@ namespace WebApp.Controllers
         [HttpGet]
         public async Task<ActionResult<List<StudentListModel>>> GetStudents()
         {
-
             var students = await service.GetStudentsAsync();
             return students;
         }
@@ -34,6 +33,12 @@ namespace WebApp.Controllers
         {
             var student = await service.GetStudentDetailsAsync(id);
             return student;
+        }
+
+        [HttpDelete("{id}")]
+        public void DeleteStudent(Guid id)
+        {
+            service.DeleteStudentAsync(id);
         }
 
     }
