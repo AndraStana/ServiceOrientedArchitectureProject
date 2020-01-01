@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option csharp_namespace = "BusinessMicroservice";
+option csharp_namespace = "StudentsMicroservice";
 
 //-------------------Get Students----------------
 
@@ -61,4 +61,15 @@ message AddGradeRequest{
 
 message AddGradeResponse{
 
+}
+
+//-------------------Get Course----------------
+
+message GetCourseRequest{
+	string courseId = 1;
+}
+
+message GetCourseResponse{
+	string id = 1;
+	string name = 2;
 }

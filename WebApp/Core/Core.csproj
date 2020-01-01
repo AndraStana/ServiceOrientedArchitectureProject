@@ -16,8 +16,12 @@
     </PackageReference>
 
 
-    <Protobuf Include="./../../Protos\Entities.proto" GrpcServices="None" OutputDir="./Generated" />
-    <Protobuf Include="./../../Protos\Services.proto" GrpcServices="Client" OutputDir="./Generated" ProtoRoot="./../../Protos" />
+    <Protobuf Include="./../../Protos\StudentsProjectEntities.proto" GrpcServices="None" OutputDir="./Generated" />
+    <Protobuf Include="./../../Protos\TeachersProjectEntities.proto" GrpcServices="None" OutputDir="./Generated" />
+    <Protobuf Include="./../../Protos\StudentsProjectServices.proto" GrpcServices="Client" OutputDir="./Generated" ProtoRoot="./../../Protos" />
+    <Protobuf Include="./../../Protos\TeachersProjectServices.proto" GrpcServices="Client" OutputDir="./Generated" ProtoRoot="./../../Protos" />
+
+
   </ItemGroup>
 
 

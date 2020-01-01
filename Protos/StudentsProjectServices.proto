@@ -2,9 +2,9 @@
 
 syntax = "proto3";
 
-option csharp_namespace = "BusinessMicroservice";
+option csharp_namespace = "StudentsMicroservice";
 
-import "Entities.proto";
+import "StudentsProjectEntities.proto";
 
 
 service StudentsGrpcService {
@@ -15,4 +15,8 @@ service StudentsGrpcService {
 
 service GradesGrpcService{
 	rpc AddGrade (AddGradeRequest) returns (AddGradeResponse);
+}
+
+service CoursesGrpcService{
+	rpc GetCourse (GetCourseRequest) returns (GetCourseResponse);
 }

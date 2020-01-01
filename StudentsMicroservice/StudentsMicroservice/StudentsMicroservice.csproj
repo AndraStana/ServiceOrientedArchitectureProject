@@ -5,9 +5,6 @@
     <TargetFramework>netcoreapp3.0</TargetFramework>
   </PropertyGroup>
 
-
-
-
   <ItemGroup>
     <PackageReference Include="Google.Protobuf" Version="3.11.2" />
     <PackageReference Include="Grpc.Core" Version="2.26.0" />
@@ -23,10 +20,12 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
 
-    <Protobuf Include="./../../Protos\TeachersProjectEntities.proto" GrpcServices="None" OutputDir="./Generated" />
-    <Protobuf Include="./../../Protos\TeachersProjectServices.proto" GrpcServices="Server" OutputDir="./Generated" ProtoRoot="./../../Protos" />
+    <Protobuf Include="./../../Protos\StudentsProjectEntities.proto" GrpcServices="None" OutputDir="./Generated" />
+    <Protobuf Include="./../../Protos\StudentsProjectServices.proto" GrpcServices="Server" OutputDir="./Generated" ProtoRoot="./../../Protos" />
 
+  </ItemGroup>
 
+  <ItemGroup>
     <Folder Include="Generated\" />
   </ItemGroup>
 

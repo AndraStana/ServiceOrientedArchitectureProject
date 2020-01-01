@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option csharp_namespace = "TeachersMicroservice";
+
+//-------------------Get Teachers----------------
+
+message GetTeachersRequest{
+    string courseId=1;
+}
+
+message GetTeachersResponse{
+    repeated TeacherMessage teachers = 1;
+}
+
+message TeacherMessage{
+    string id = 1;
+    string name = 2;
+    string motto = 3;
+    int32 yearOfBirth = 4;
+    int32 careerStartYear = 5;
+}

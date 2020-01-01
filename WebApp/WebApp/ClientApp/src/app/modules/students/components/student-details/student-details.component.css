@@ -37,3 +37,7 @@ h2{
 .average-container{
     flex: 3;
 }
+
+.pointer{
+    cursor: pointer;
+}

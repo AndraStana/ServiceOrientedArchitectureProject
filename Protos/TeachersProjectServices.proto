@@ -1,0 +1,10 @@
+
+syntax = "proto3";
+
+option csharp_namespace = "TeachersMicroservice";
+
+import "TeachersProjectEntities.proto";
+
+service TeachersGrpcService{
+    rpc GetTeachers (GetTeachersRequest) returns (GetTeachersResponse);
+}

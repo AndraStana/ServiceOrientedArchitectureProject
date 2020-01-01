@@ -13,7 +13,7 @@
 
     <div *ngFor="let grade of student.grades">
         <mat-card class="grade-container">
-            <span class="course-name-container"> <b>{{grade.courseName}} </b></span>
+            <span class="course-name-container pointer" [routerLink]="['/course/'+grade.courseId]"> <b>{{grade.courseName}} </b></span>
             <div class="marks-container" *ngFor="let mark of grade.marks">
                 <span > {{mark}} </span>
             </div>

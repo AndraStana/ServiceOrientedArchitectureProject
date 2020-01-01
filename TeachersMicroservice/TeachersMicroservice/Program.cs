@@ -2,9 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Threading;
+using System.Threading.Tasks;
+using Grpc.Core;
 using Microsoft.EntityFrameworkCore.Internal;
 using TeachersMicroservice.Database;
 using TeachersMicroservice.Entities;
+using TeachersMicroservice.GrpcServicesImplementations;
 
 namespace TeachersMicroservice
 {
@@ -12,8 +16,50 @@ namespace TeachersMicroservice
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Start...");
+
             InitializeDb();
-            Console.WriteLine("Hello World!");
+
+            const string DefaultHost = "localhost";
+            const int Port = 50052;
+
+            var server = new Server
+            {
+                Services = { TeachersGrpcService.BindService(new TeachersGrpcServiceImpl())
+                },
+                Ports = { new ServerPort(DefaultHost, Port, ServerCredentials.Insecure) }
+            };
+
+            CancellationTokenSource tokenSource = new CancellationTokenSource();
+            var serverTask = RunServiceAsync(server, tokenSource.Token);
+
+            Console.WriteLine("Server listening on port " + Port);
+            Console.WriteLine("Press any key to stop the server...");
+            Console.ReadKey();
+
+            tokenSource.Cancel();
+            Console.WriteLine("Shutting down...");
+            serverTask.Wait();
+
+
+            Console.WriteLine("Press any key to exit...");
+            Console.ReadKey();
+        }
+
+
+        private static async Task RunServiceAsync(Server server, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            server.Start();
+
+            await AwaitCancellation(cancellationToken);
+            await server.ShutdownAsync();
+        }
+
+        private static Task AwaitCancellation(CancellationToken token)
+        {
+            var taskSource = new TaskCompletionSource<bool>();
+            token.Register(() => taskSource.SetResult(true));
+            return taskSource.Task;
         }
 
         private static void InitializeDb()
