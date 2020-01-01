@@ -24,7 +24,8 @@ namespace StudentsMicroservice.Services
             var student = db.Students
                 .Include(s => s.Grades)
                 .ThenInclude(g => g.Course)
-                .FirstOrDefault(s => s.Id == id);
+                .FirstOrDefault(s => s.Id == id)
+                ;
             return student;
         }
 

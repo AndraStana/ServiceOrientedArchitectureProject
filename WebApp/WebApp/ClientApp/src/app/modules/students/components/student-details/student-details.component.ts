@@ -40,7 +40,6 @@ export class StudentDetailsComponent implements OnInit {
 
 
   public openMarkModal(grade: GradeModel): void{
-
     const dialogRef = this.dialog.open(AddMarkDialogComponent, {
       width: '250px',
       data: {courseName: grade.courseName}
@@ -50,7 +49,6 @@ export class StudentDetailsComponent implements OnInit {
 
       console.log('The dialog was closed', result);
         if(result !== undefined && result !== null ){
-
           var addGrade = <AddGradeModel>{
             courseId: grade.courseId,
             studentId: this.studentId,

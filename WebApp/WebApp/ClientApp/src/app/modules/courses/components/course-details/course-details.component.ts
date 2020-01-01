@@ -12,7 +12,9 @@ export class CourseDetailsComponent implements OnInit {
 
 
   public course: CourseDetailsModel;
+  public currentYear= new Date().getFullYear();
   private courseId:  string;
+
   constructor(private route: ActivatedRoute, private coursesService: CoursesService) { }
 
   ngOnInit() {

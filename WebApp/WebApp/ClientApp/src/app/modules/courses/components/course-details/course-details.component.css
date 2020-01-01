@@ -1,0 +1,64 @@
+.teacher-container{
+    margin:30px;
+    display: flex;
+    flex-direction:column;
+}
+
+.teacher-details{
+    display: flex;
+    flex-direction:row;
+    justify-content: space-evenly;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+}
+
+h1{
+    margin: auto;
+}
+
+h3{
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+.motto-container{
+    flex:6;
+}
+
+.age-container{
+    flex:2;
+}
+
+.experience-container{
+    flex:4;
+
+}
+
+.teachers-container{
+    margin-top:50px;
+}
+
+span{
+    font-size: 18px;
+}
+
+.even-row{
+    background-color: #87a5d4;
+    padding: 30px;
+
+}
+
+.odd-row{
+    background-color: #b17ebf;
+    padding: 30px;
+
+
+}
+
+mat-card{
+    border-style: ridge;
+
+}

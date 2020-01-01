@@ -25,7 +25,7 @@ namespace TeachersMicroservice.GrpcServicesImplementations
                     Id = t.Id.ToString(),
                     Name= t.Name,
                     CareerStartYear = t.CareerStartYear,
-                    YearOfBirth = t.CareerStartYear,
+                    YearOfBirth = t.YearOfBirth,
                     Motto = t.Motto
                 }
             ).ToList();

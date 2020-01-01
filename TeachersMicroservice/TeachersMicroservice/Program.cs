@@ -121,6 +121,22 @@ namespace TeachersMicroservice
                 YearOfBirth = 1985
             });
 
+            db.Teachers.Add(new Teacher()
+            {
+                Name = "Mirela Cras",
+                CareerStartYear = 2000,
+                Motto = "Work until your wishes come true",
+                YearOfBirth = 1985
+            });
+
+            db.Teachers.Add(new Teacher()
+            {
+                Name = "Stefan Relu",
+                CareerStartYear = 2009,
+                Motto = "Never stop trying.",
+                YearOfBirth = 1985
+            });
+
             db.SaveChanges();
         }
 
@@ -154,11 +170,19 @@ namespace TeachersMicroservice
                 {
                     Id = Guid.NewGuid(),
                     CourseId = Guid.Parse(courseId),
-                    TeacherId = teachers.ElementAt(random.Next(4, teachers.Count)).Id
+                    TeacherId = teachers.ElementAt(random.Next(4, 6)).Id
+                };
+                var teacherCourse4 = new TeacherCourse()
+                {
+                    Id = Guid.NewGuid(),
+                    CourseId = Guid.Parse(courseId),
+                    TeacherId = teachers.ElementAt(random.Next(6, teachers.Count)).Id
                 };
                 db.TeacherCourses.Add(teacherCourse1);
                 db.TeacherCourses.Add(teacherCourse2);
                 db.TeacherCourses.Add(teacherCourse3);
+                db.TeacherCourses.Add(teacherCourse4);
+
 
                 db.SaveChanges();
             }

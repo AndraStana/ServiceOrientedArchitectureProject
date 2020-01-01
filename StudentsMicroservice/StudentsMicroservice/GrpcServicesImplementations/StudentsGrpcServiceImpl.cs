@@ -52,9 +52,11 @@ namespace StudentsMicroservice.GrpcServicesImplementations
 
                 };
                 grade.Marks.AddRange(student.Grades.Where(g => g.CourseId == course.Id).Select(g=>g.Mark).ToList());
+               
                 grades.Add(grade);
             }
 
+            grades = grades.OrderBy(g => g.CourseName).ToList();
 
             var response = new GetStudentDetailsResponse()
             {

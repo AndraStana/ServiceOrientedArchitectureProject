@@ -1,8 +1,23 @@
-<p>course-details works!</p>
 
-<div *ngIf="course">
+<div class="container" *ngIf="course">
 
-    <span>{{course.course.name}}</span>
+    <h1>{{course.course.name}}</h1>
+
+    <div class="teachers-container">
+
+        <div  *ngFor="let teacher of course.teachers; let i= index">
+        <mat-card class="teacher-container">
+            <h3> {{teacher.name}}</h3>
+            
+            <div [ngClass]="{'even-row': i%2==0, 'odd-row': i%2==1}" class="teacher-details">
+                <span class="age-container"><b>Age: </b> {{currentYear - teacher.yearOfBirth}} years</span>
+                <span class="experience-container"><b>Experience: </b>{{currentYear - teacher.careerStartYear}} years</span>
+                <span class="motto-container"><b>Motto: </b>{{teacher.motto}}</span>
+            </div>
+        </mat-card>
+    </div>
+    </div>
+
 
 
 </div>
